@@ -1,0 +1,18 @@
+DROP TABLE OBJECT_ID;
+
+DROP TABLE OBJECT_SPACE;
+
+CREATE TABLE object_id (
+   fkid_object_space integer, 
+   object_id integer,
+   primary key(fkid_object_space, object_id)
+);
+
+CREATE TABLE object_space(
+   organization varchar(16),
+   system varchar(16),
+   object_type varchar(16),
+   primary key(organization, system, object_type)
+);
+
+
