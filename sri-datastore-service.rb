@@ -1,4 +1,5 @@
 require 'sqlite3'
+require 'google/cloud/datastore'
 
 # gems:
 # sqlite3
@@ -6,7 +7,24 @@ require 'sqlite3'
 
 #require 'securerandom'
 
-$db = SQLite3::Database.new 'db-global-object-ids.sqlite3'
+# $db = SQLite3::Database.new 'db-global-object-ids.sqlite3'
+
+class SystemRecordIdMax
+
+  attr_accessor :id, :organization, :system, :object_type, :id_max
+
+  # Return a Google::Cloud::Datastore::Dataset for the configured dataset.
+  # The dataset is used to create, read, update, and delete entity objects.
+  def self.dataset
+    @dataset ||= Google::Cloud::Datastore.new()
+
+      #project: "dmp-srid-service",
+      #keyfile: "srid.json"
+      # project: Rails.application.config. database_configuration[Rails.env]["dataset_id"]
+#    )
+  end
+
+end
 
 # Copyright 2015 Google, Inc
 #
