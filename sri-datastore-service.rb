@@ -41,10 +41,10 @@ def getobjectspace( organization, system, object_type )
 end
 
 get "/record" do
-  #  guid = SecureRandom.random_bytes(16) # 128 bits of random datan
   content_type :json
-  
+#  guid = SecureRandom.random_bytes(16) # 128 bits of random datan
   nextid = 0
+  
   organization = params[:organization]
   system = params[:system]
   object_type = params[:object_type]
